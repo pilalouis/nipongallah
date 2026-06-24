@@ -1,34 +1,34 @@
 /* ============================================
-   Nipong Allah Social Group - Main Stylesheet
-   Modern, Premium Design with Cultural Elements
+   Nipong Allah Dynamic Farmers CIG
+   Ndop Cultural Pride — Redesign
+   Palette drawn from real community photos:
+   deep indigo ndop, terracotta kente, harvest amber
    ============================================ */
 
 /* ============================================
    CSS Variables - Design System
    ============================================ */
 :root {
-    /* Colors - Warm Earth & Gold Palette */
-    --primary-color: #8B4513;
-    /* Saddle Brown - stability, heritage */
-    --secondary-color: #d4af37;
-    /* Gold - prosperity (unchanged) */
-    --accent-color: #C25D3B;
-    /* Burnt Sienna - warmth, energy */
-    --dark-color: #2C1810;
-    /* Dark Brown - rich depth */
-    --light-color: #F5EBE0;
-    /* Linen - soft, warm background */
+    /* Colors — sourced from the Pinyin cultural dress */
+    --primary-color: #1A2E4A;     /* Deep ndop indigo — from the blue tie-dye fabric */
+    --secondary-color: #E8A020;   /* Harvest amber — from the golden kente patterns */
+    --accent-color: #D14E2A;      /* Terracotta red — from the kente stripes & sashes */
+    --dark-color: #0F1C2E;        /* Near-black indigo — deep fabric shadow */
+    --light-color: #F0EBE1;       /* Sandy beige — laterite earth in the photos */
+    --surface-color: #FDFAF5;     /* Warm off-white — neutral frame */
     --white-color: #ffffff;
+    --text-muted: #5A6475;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-    --gradient-overlay: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(139, 90, 43, 0.85) 100%);
+    --gradient-primary: linear-gradient(135deg, #1A2E4A 0%, #243D60 100%);
+    --gradient-gold: linear-gradient(135deg, #E8A020 0%, #F0B830 100%);
+    --gradient-hero-overlay: linear-gradient(105deg, #FDFAF5 55%, transparent 100%);
+    --gradient-overlay: linear-gradient(to top, rgba(15, 28, 46, 0.92) 0%, rgba(15, 28, 46, 0.4) 60%, transparent 100%);
 
-    /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-accent: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    /* Typography — Syne (display) + Manrope (body) */
+    --font-heading: 'Syne', sans-serif;
+    --font-accent: 'Syne', sans-serif;
+    --font-body: 'Manrope', sans-serif;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -43,16 +43,16 @@
     --transition-slow: 0.5s ease;
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+    --shadow-sm: 0 2px 12px rgba(26, 46, 74, 0.08);
+    --shadow-md: 0 4px 20px rgba(26, 46, 74, 0.14);
+    --shadow-lg: 0 8px 36px rgba(26, 46, 74, 0.2);
+    --shadow-xl: 0 16px 56px rgba(26, 46, 74, 0.28);
 
-    /* Border Radius */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
+    /* Border Radius — less aggressive than before, keeping some warmth */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
 }
 
 /* ============================================
@@ -72,7 +72,7 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--dark-color);
-    background-color: var(--white-color);
+    background-color: var(--surface-color);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -109,6 +109,10 @@ ul {
 
 .section:nth-child(even) {
     background-color: var(--light-color);
+}
+
+.section:nth-child(odd) {
+    background-color: var(--surface-color);
 }
 
 /* ============================================
@@ -157,9 +161,10 @@ ul {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(15, 20, 25, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-md);
+    background: rgba(15, 28, 46, 0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.2);
+    box-shadow: 0 2px 24px rgba(15, 28, 46, 0.4);
     transition: var(--transition-normal);
 }
 
@@ -172,14 +177,15 @@ ul {
 
 .nav-brand h2 {
     font-family: var(--font-accent);
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 800;
     background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     line-height: 1.2;
+    text-transform: uppercase;
 }
 
 .motto-small {
@@ -256,8 +262,21 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--light-color);
+    background: var(--surface-color);
     overflow: hidden;
+}
+
+/* Subtle ndop-blue texture strip behind hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(26, 46, 74, 0.04) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-container {
@@ -280,39 +299,40 @@ ul {
 
 .hero-title {
     font-family: var(--font-accent);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
     font-weight: 800;
     color: var(--primary-color);
     letter-spacing: 1px;
     margin-bottom: var(--spacing-md);
     line-height: 1.15;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: var(--accent-color);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--secondary-color);
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-weight: 600;
 }
 
 .hero-motto {
-    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     color: var(--secondary-color);
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     padding-bottom: var(--spacing-md);
-    border-bottom: 3px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
     display: inline-block;
 }
 
 .hero-description {
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
-    color: #555;
-    line-height: 1.8;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--text-muted);
+    line-height: 1.85;
     margin-bottom: var(--spacing-lg);
     max-width: 500px;
 }
@@ -330,16 +350,29 @@ ul {
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     transition: var(--transition-slow);
+    /* Accent border — ndop blue top-left, amber bottom-right */
+    outline: 4px solid var(--secondary-color);
+    outline-offset: 8px;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 46, 74, 0.15) 0%, transparent 50%);
+    border-radius: var(--radius-xl);
+    pointer-events: none;
 }
 
 .hero-image:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 64px rgba(26, 46, 74, 0.35);
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 580px;
     display: block;
     object-fit: cover;
     border-radius: var(--radius-xl);
@@ -383,17 +416,19 @@ ul {
    ============================================ */
 .btn {
     display: inline-block;
-    padding: 14px 32px;
+    padding: 14px 36px;
     font-family: var(--font-accent);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
     text-align: center;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all var(--transition-normal);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .btn::before {
@@ -404,7 +439,7 @@ ul {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.18);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
@@ -417,12 +452,12 @@ ul {
 .btn-primary {
     background: var(--gradient-gold);
     color: var(--dark-color);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 16px rgba(232, 160, 32, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 28px rgba(232, 160, 32, 0.45);
 }
 
 .btn-secondary {
@@ -553,90 +588,127 @@ ul {
    ============================================ */
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
 
 .program-card {
-    padding: var(--spacing-lg);
-    background: var(--white-color);
+    padding: var(--spacing-md);
+    background: var(--surface-color);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-normal);
-    border-top: 4px solid transparent;
+    border: 1.5px solid rgba(26, 46, 74, 0.12);
+    transition: background 0.35s ease, color 0.35s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* High-contrast invert on hover — the aesthetic risk */
 .program-card:hover {
-    transform: translateY(-10px);
+    background: var(--primary-color);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
-    border-top-color: var(--secondary-color);
+    border-color: transparent;
+}
+
+.program-card:hover .program-icon {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.program-card:hover h3 {
+    color: var(--white-color);
+}
+
+.program-card:hover .program-summary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.program-card:hover .expand-btn {
+    background: rgba(232, 160, 32, 0.15);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.program-card:hover .program-features li {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.program-card:hover .program-features i {
+    color: var(--secondary-color);
 }
 
 .program-icon {
-    width: 80px;
-    height: 80px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-primary);
-    border-radius: 50%;
+    border-radius: var(--radius-md);
     color: var(--white-color);
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
+    transition: background 0.35s ease, color 0.35s ease;
 }
 
 .program-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
-    line-height: 1.2;
+    line-height: 1.4;
+    font-weight: 700;
+    transition: color 0.35s ease;
 }
 
 .program-card p {
-    color: #666;
+    color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: var(--spacing-md);
 }
 
 /* Expandable Card Styles */
 .program-summary {
-    font-size: 1rem;
-    color: #555;
+    font-size: 0.98rem;
+    color: var(--text-muted);
     font-weight: 500;
     margin-bottom: var(--spacing-md);
-    line-height: 1.6;
+    line-height: 1.65;
+    transition: color 0.35s ease;
 }
 
 .expand-btn {
     width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: var(--light-color);
-    border: 2px solid var(--secondary-color);
-    border-radius: var(--radius-md);
+    padding: 0.65rem var(--spacing-sm);
+    background: transparent;
+    border: 1.5px solid rgba(26, 46, 74, 0.25);
+    border-radius: var(--radius-sm);
     color: var(--primary-color);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: var(--transition-normal);
+    transition: all var(--transition-normal);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .expand-btn:hover {
     background: var(--secondary-color);
-    color: var(--white-color);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    border-color: var(--secondary-color);
+    color: var(--dark-color);
+    transform: translateY(-1px);
 }
 
 .expand-btn i {
     transition: transform 0.3s ease;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .program-card.expanded .expand-btn i {
@@ -658,19 +730,24 @@ ul {
 .program-features {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 0.75rem;
 }
 
 .program-features li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacing-sm);
-    color: #555;
-    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.5;
+    transition: color 0.35s ease;
 }
 
 .program-features i {
     color: var(--secondary-color);
+    margin-top: 3px;
+    flex-shrink: 0;
+    transition: color 0.35s ease;
 }
 
 /* ============================================
@@ -812,11 +889,19 @@ ul {
 /* ============================================
    Gallery Section
    ============================================ */
+/* Premium 2-column masonry-style gallery */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: var(--spacing-sm);
     margin-top: var(--spacing-lg);
+}
+
+/* First item spans both columns — hero gallery shot */
+.gallery-item:first-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 16/7;
 }
 
 .gallery-item {
@@ -825,36 +910,38 @@ ul {
     border-radius: var(--radius-lg);
     aspect-ratio: 4/3;
     cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: var(--shadow-lg);
+    z-index: 2;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition-slow);
+    transition: transform var(--transition-slow);
+    display: block;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.07);
 }
 
+/* Overlay — slides up from bottom on hover */
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: var(--spacing-md);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + 4px);
+    background: var(--gradient-overlay);
     color: var(--white-color);
     transform: translateY(100%);
-    transition: var(--transition-normal);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -863,13 +950,16 @@ ul {
 
 .gallery-overlay h4 {
     font-family: var(--font-accent);
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
 }
 
 .gallery-overlay p {
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 0.875rem;
+    opacity: 0.82;
+    font-family: var(--font-body);
 }
 
 /* Lightbox */
@@ -916,8 +1006,8 @@ ul {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(212, 175, 55, 0.8);
-    color: var(--white-color);
+    background: rgba(232, 160, 32, 0.85);
+    color: var(--dark-color);
     border: none;
     font-size: 2rem;
     padding: var(--spacing-md);
@@ -1000,10 +1090,10 @@ ul {
 }
 
 .bank-card {
-    background: var(--white-color);
+    background: var(--surface-color);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-md);
+    border: 1.5px solid rgba(26, 46, 74, 0.12);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -1069,7 +1159,7 @@ ul {
     display: flex;
     gap: var(--spacing-sm);
     padding: var(--spacing-md);
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(232, 160, 32, 0.08);
     border-left: 4px solid var(--secondary-color);
     border-radius: var(--radius-sm);
 }
@@ -1082,7 +1172,7 @@ ul {
 
 .donate-note p {
     font-size: 0.95rem;
-    color: #555;
+    color: var(--text-muted);
     margin: 0;
 }
 
@@ -1104,15 +1194,15 @@ ul {
 
 .contact-icon {
     flex-shrink: 0;
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-gold);
-    border-radius: 50%;
-    color: var(--white-color);
-    font-size: 1.5rem;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    color: var(--secondary-color);
+    font-size: 1.4rem;
 }
 
 .contact-details h4 {
@@ -1149,20 +1239,20 @@ ul {
 }
 
 .social-icons a {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-primary);
-    color: var(--white-color);
-    border-radius: 50%;
-    font-size: 1.5rem;
+    color: var(--secondary-color);
+    border-radius: var(--radius-sm);
+    font-size: 1.4rem;
     transition: var(--transition-normal);
 }
 
 .social-icons a:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     background: var(--gradient-gold);
     color: var(--dark-color);
@@ -1170,10 +1260,10 @@ ul {
 
 /* Contact Form */
 .contact-form {
-    background: var(--white-color);
+    background: var(--surface-color);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    border: 1.5px solid rgba(26, 46, 74, 0.12);
 }
 
 .contact-form h3 {
@@ -1202,7 +1292,7 @@ ul {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.12);
 }
 
 .form-group textarea {
@@ -1217,6 +1307,7 @@ ul {
     background: var(--dark-color);
     color: var(--white-color);
     padding: var(--spacing-xl) 0 var(--spacing-md);
+    border-top: 3px solid var(--secondary-color);
 }
 
 .footer-content {
@@ -1303,15 +1394,15 @@ ul {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     background: var(--gradient-gold);
     color: var(--dark-color);
     border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.3rem;
     cursor: pointer;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 16px rgba(232, 160, 32, 0.4);
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-normal);
@@ -1324,8 +1415,8 @@ ul {
 }
 
 .scroll-top:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(232, 160, 32, 0.5);
 }
 
 /* ============================================

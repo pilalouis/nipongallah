@@ -251,7 +251,7 @@ if (contactForm) {
         const message = document.getElementById('message').value;
 
         // Create mailto link
-        const mailtoLink = `mailto:info@nipongallah.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        const mailtoLink = `mailto:nipongallah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
         // Open default email client
         window.location.href = mailtoLink;
@@ -338,36 +338,7 @@ if ('IntersectionObserver' in window) {
     lazyImages.forEach(img => imageObserver.observe(img));
 }
 
-// ============================================
-// Initialize Placeholder Images for Gallery
-// ============================================
-function generatePlaceholderImages() {
-    const galleryGrid = document.getElementById('galleryGrid');
-
-    // If using online placeholder service
-    const placeholderImages = [
-        { url: 'https://via.placeholder.com/600x450/1a472a/d4af37?text=Community+Meeting', title: 'Monthly Assembly', desc: 'General Assembly Meeting' },
-        { url: 'https://via.placeholder.com/600x450/2d6a43/ffffff?text=Cultural+Event', title: 'Cultural Celebration', desc: 'Traditional Event' },
-        { url: 'https://via.placeholder.com/600x450/1a472a/d4af37?text=Member+Activities', title: 'Community Support', desc: 'Solidarity Activities' },
-        { url: 'https://via.placeholder.com/600x450/2d6a43/ffffff?text=Group+Photo', title: 'Members Together', desc: 'Annual Gathering' },
-        { url: 'https://via.placeholder.com/600x450/1a472a/d4af37?text=Njangi+Distribution', title: 'Njangi Day', desc: 'Financial Distribution' },
-        { url: 'https://via.placeholder.com/600x450/2d6a43/ffffff?text=Community+Service', title: 'Community Service', desc: 'Helping the Needy' }
-    ];
-
-    // Update existing gallery items with placeholder URLs
-    const galleryItems = galleryGrid.querySelectorAll('.gallery-item img');
-    galleryItems.forEach((img, index) => {
-        if (placeholderImages[index]) {
-            img.src = placeholderImages[index].url;
-            img.alt = placeholderImages[index].title;
-        }
-    });
-}
-
-// Call on page load
-window.addEventListener('load', () => {
-    generatePlaceholderImages();
-});
+// Gallery images are already set in HTML with real photos.
 
 // ============================================
 // Performance: Debounce Scroll Events
@@ -408,7 +379,7 @@ expandButtons.forEach(button => {
         if (card.classList.contains('expanded')) {
             textSpan.textContent = 'Show Less';
         } else {
-            textSpan.textContent = 'Learn More';
+            textSpan.textContent = 'Read More';
         }
     });
 
